@@ -1,18 +1,8 @@
 package dev.snowdrop.buildpack.model;
 
-import io.sundr.builder.annotations.Buildable;
+import org.immutables.value.Value;
 
-@Buildable
-public class BuildPlanProvide {
-    private String Name;
-
-    public BuildPlanProvide() {}
-
-    public String getName() {
-        return Name;
-    }
-    public void setName(String name) {
-        Name = name;
-    }
-
+@Value.Immutable
+public interface BuildPlanProvide {
+    String Name();
 }

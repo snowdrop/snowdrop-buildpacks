@@ -10,6 +10,7 @@ mvn clean package -Pnative \
     -f main/pom.xml
 
 echo "Move the file created under bin/ folder"
+mkdir -p bin
 mv main/target/main-runner bin/main
 
 echo "Create the symbolic links for detect and build"

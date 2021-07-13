@@ -1,4 +1,5 @@
 package dev.snowdrop.buildpack;
+
 import dev.snowdrop.buildpack.model.*;
 
 import java.io.File;
@@ -45,18 +46,20 @@ public class Detect extends BuildPacks {
     }
 
     private BuildPlan createBuildPlan() {
-        BuildPlanBuilder buildPlanBuilder = new BuildPlanBuilder();
-        buildPlanBuilder
-                .withPath(this.BUILD_PLAN)
-                .addNewRequire()
-                    .withName("maven")
-                    .addToMetadata("version","3.6.4")
-                .endRequire()
-                .addNewProvide()
-                    .withName("")
-                .endProvide();
-
-        return buildPlanBuilder.build();
+        return ImmutableBuildPlan.builder()
+                .path(this.BUILD_PLAN)
+                .addProvides(
+                        ImmutableBuildPlanProvide.builder()
+                                .Name("maven")
+                                .build()
+                )
+                .addRequires(
+                        ImmutableBuildPlanRequire.builder()
+                                .Name("maven")
+                                .putMetadata("version","3.6.4")
+                                .build()
+                )
+                .build();
     }
 
 }

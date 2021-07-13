@@ -23,7 +23,7 @@
         <quarkus.platform.bom>quarkus-bom</quarkus.platform.bom>
         <quarkus.platform.version>2.0.1.Final</quarkus.platform.version>
 
-        <sundrio.version>0.40.1</sundrio.version>
+        <immutables.version>2.8.8</immutables.version>
 
         <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     </properties>
@@ -38,9 +38,9 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>io.sundr</groupId>
-                <artifactId>builder-annotations</artifactId>
-                <version>${sundrio.version}</version>
+                <groupId>org.immutables</groupId>
+                <artifactId>value</artifactId>
+                <version>${immutables.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
